@@ -1,0 +1,151 @@
+{
+    "annotations": {
+      "list": [
+        {
+          "builtIn": 1,
+          "datasource": {
+            "type": "grafana",
+            "uid": "-- Hidden --" // Placeholder for Grafana's default UID
+          },
+          "enable": true,
+          "hide": true,
+          "iconColor": "rgba(0, 211, 255, 1)",
+          "name": "Annotations & Alerts", // Represents annotations and alerts configuration
+          "type": "dashboard"
+        }
+      ]
+    },
+    "editable": true,
+    "fiscalYearStartMonth": 0,
+    "graphTooltip": 0,
+    "id": 25, // Dashboard ID
+    "links": [],
+    "liveNow": false,
+    "panels": [
+      {
+        // Panel 1: Pie Chart Configuration
+        "datasource": {
+          "type": "tinybird-tinybird-datasource",
+          "uid": "-- Hidden --" // Obfuscated UID for datasource
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "palette-classic" // Default color palette
+            },
+            "custom": {
+              "hideFrom": {
+                "legend": false,
+                "tooltip": false,
+                "viz": false
+              }
+            },
+            "mappings": []
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 11,
+          "x": 0,
+          "y": 0
+        },
+        "id": 1, // Panel ID
+        "options": {
+          "displayLabels": ["percent"], // Labels displayed on the chart
+          "legend": {
+            "displayMode": "table",
+            "placement": "right",
+            "showLegend": true,
+            "values": ["percent", "value"]
+          },
+          "pieType": "donut", // Type of pie chart
+          "reduceOptions": {
+            "calcs": ["lastNotNull"], // Calculation method for aggregation
+            "fields": "",
+            "values": false
+          },
+          "tooltip": {
+            "mode": "single", // Tooltip display mode
+            "sort": "none"
+          }
+        },
+        "targets": [
+          {
+            "datasource": {
+              "type": "tinybird-tinybird-datasource",
+              "uid": "-- Hidden --" // Obfuscated UID for datasource
+            },
+            "pipeName": "live_search_analytics_calendar_data_aggregates_grafana_nwi", // Analytics data pipe
+            "params": {
+              "date_from": "${__from:date:YYYY-MM-DD HH:mm:ss}", // Dynamic date range
+              "date_to": "${__to:date:YYYY-MM-DD HH:mm:ss}"
+            },
+            "refId": "A" // Query reference ID
+          }
+        ],
+        "title": "Total Bookings/Searches", // Panel title
+        "type": "piechart" // Visualization type
+      },
+      {
+        // Panel 2: Custom ECharts Configuration
+        "datasource": {
+          "type": "tinybird-tinybird-datasource",
+          "uid": "-- Hidden --" // Obfuscated UID for datasource
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 11,
+          "y": 0
+        },
+        "id": 3, // Panel ID
+        "options": {
+          "map": "none", // Map integration (disabled)
+          "themeEditor": {
+            "name": "default", // Theme configuration
+            "height": 400
+          },
+          "getOption": "Obfuscated for brevity" // Custom JS function for ECharts
+        },
+        "targets": [
+          {
+            "datasource": {
+              "type": "tinybird-tinybird-datasource",
+              "uid": "-- Hidden --" // Obfuscated UID for datasource
+            },
+            "pipeName": "live_search_analytics_calendar_data_aggregates_grafana_nwi",
+            "params": {
+              "date_from": "${__from:date:YYYY-MM-DD HH:mm:ss}",
+              "date_to": "${__to:date:YYYY-MM-DD HH:mm:ss}"
+            },
+            "refId": "A" // Query reference ID
+          }
+        ],
+        "title": "Panel Title", // Panel title placeholder
+        "type": "volkovlabs-echarts-panel" // Visualization type
+      }
+    ],
+    "refresh": "",
+    "schemaVersion": 38, // Grafana schema version
+    "style": "dark", // Dashboard style
+    "templating": {
+      "list": [
+        {
+          "current": {
+            "selected": true,
+            "text": "2024",
+            "value": "2024"
+          },
+          "label": "Year", // Dropdown label for year selection
+          "type": "dropdown" // Templating type
+        }
+      ]
+    },
+    "time": {
+      "from": "now-6h",
+      "to": "now" // Default time range for dashboard
+    },
+    "timezone": "browser" // Use browser timezone for time representation
+  }
+  

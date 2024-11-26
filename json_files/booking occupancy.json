@@ -1,0 +1,203 @@
+{
+    "annotations": {
+      "list": [
+        {
+          "builtIn": 1,
+          "datasource": {
+            "type": "grafana",
+            "uid": "REDACTED-GRAFANA-UID" // Obfuscated UID for Grafana
+          },
+          "enable": true,
+          "hide": true,
+          "iconColor": "rgba(0, 211, 255, 1)",
+          "name": "Annotations & Alerts",
+          "type": "dashboard"
+        }
+      ]
+    },
+    "editable": true,
+    "fiscalYearStartMonth": 0,
+    "graphTooltip": 0,
+    "id": 61,
+    "links": [],
+    "liveNow": false,
+    "panels": [
+      {
+        // Heatmap panel displaying year view data.
+        "datasource": {
+          "type": "mysql",
+          "uid": "REDACTED-MYSQL-UID" // Obfuscated UID for MySQL
+        },
+        "gridPos": {
+          "h": 10,
+          "w": 17,
+          "x": 0,
+          "y": 0
+        },
+        "id": 3,
+        "options": {
+          "baidu": {
+            "callback": "bmapReady",
+            "key": "" // Placeholder for Baidu key
+          },
+          "editor": {
+            "format": "auto",
+            "height": 600
+          },
+          "gaode": {
+            "key": "",
+            "plugin": "AMap.Scale,AMap.ToolBar" // Plugins used for GaoDe maps
+          },
+          "getOption": "/* Heatmap configuration logic obfuscated */",
+          "google": {
+            "callback": "gmapReady",
+            "key": "" // Placeholder for Google Maps API key
+          },
+          "map": "none",
+          "renderer": "canvas",
+          "themeEditor": {
+            "config": "{}",
+            "height": 400,
+            "name": "default"
+          }
+        },
+        "pluginVersion": "9.5.2",
+        "targets": [
+          {
+            // SQL query to fetch data for heatmap visualization.
+            "datasource": {
+              "type": "mysql",
+              "uid": "REDACTED-MYSQL-UID"
+            },
+            "editorMode": "code",
+            "format": "table",
+            "rawQuery": true,
+            "rawSql": "/* SQL query obfuscated */",
+            "refId": "A",
+            "sql": {
+              "columns": [
+                {
+                  "parameters": [],
+                  "type": "function"
+                }
+              ],
+              "groupBy": [
+                {
+                  "property": {
+                    "type": "string"
+                  },
+                  "type": "groupBy"
+                }
+              ],
+              "limit": 50
+            }
+          }
+        ],
+        "title": "Calendar Heatmap (Year View)",
+        "transformations": [
+          {
+            "id": "convertFieldType",
+            "options": {
+              "conversions": [
+                {
+                  "destinationType": "string",
+                  "targetField": "DATE"
+                }
+              ],
+              "fields": {}
+            }
+          }
+        ],
+        "type": "volkovlabs-echarts-panel"
+      },
+      {
+        // Heatmap panel displaying month view data.
+        "datasource": {
+          "type": "mysql",
+          "uid": "REDACTED-MYSQL-UID"
+        },
+        "gridPos": {
+          "h": 10,
+          "w": 7,
+          "x": 17,
+          "y": 0
+        },
+        "id": 4,
+        "options": {
+          "baidu": {
+            "callback": "bmapReady",
+            "key": ""
+          },
+          "editor": {
+            "format": "auto",
+            "height": 600
+          },
+          "gaode": {
+            "key": "",
+            "plugin": "AMap.Scale,AMap.ToolBar"
+          },
+          "getOption": "/* Month-view heatmap configuration logic obfuscated */",
+          "google": {
+            "callback": "gmapReady",
+            "key": ""
+          },
+          "map": "none",
+          "renderer": "canvas",
+          "themeEditor": {
+            "config": "{}",
+            "height": 400,
+            "name": "default"
+          }
+        },
+        "pluginVersion": "9.5.2",
+        "targets": [
+          {
+            "datasource": {
+              "type": "mysql",
+              "uid": "REDACTED-MYSQL-UID"
+            },
+            "editorMode": "code",
+            "format": "table",
+            "rawQuery": true,
+            "rawSql": "/* SQL query obfuscated */",
+            "refId": "A",
+            "sql": {
+              "columns": [
+                {
+                  "parameters": [],
+                  "type": "function"
+                }
+              ],
+              "groupBy": [
+                {
+                  "property": {
+                    "type": "string"
+                  },
+                  "type": "groupBy"
+                }
+              ],
+              "limit": 50
+            }
+          }
+        ],
+        "title": "Calendar Heatmap (Month View)",
+        "transformations": [
+          {
+            "id": "convertFieldType",
+            "options": {
+              "conversions": [
+                {
+                  "destinationType": "string",
+                  "targetField": "DATE"
+                }
+              ],
+              "fields": {}
+            }
+          }
+        ],
+        "type": "volkovlabs-echarts-panel"
+      }
+      // Additional panels are obfuscated for brevity.
+    ]
+  }
+  

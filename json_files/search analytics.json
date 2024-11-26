@@ -1,0 +1,252 @@
+{
+    "annotations": {
+      "list": [
+        {
+          "builtIn": 1,
+          "datasource": {
+            "type": "grafana",
+            "uid": "-- Hidden UID --" // Obfuscated UID for Grafana data source
+          },
+          "enable": true,
+          "hide": true,
+          "iconColor": "rgba(0, 211, 255, 1)", // Default annotation icon color
+          "name": "Annotations & Alerts",
+          "type": "dashboard" // Indicates this annotation applies to the dashboard
+        }
+      ]
+    },
+    "editable": true,
+    "fiscalYearStartMonth": 0,
+    "graphTooltip": 0, // Default tooltip mode
+    "id": 11,
+    "links": [],
+    "liveNow": false,
+    "panels": [
+      {
+        "datasource": {
+          "type": "tinybird-datasource",
+          "uid": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" // Obfuscated unique identifier for data source
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "palette-classic" // Default color scheme
+            },
+            "custom": {
+              "hideFrom": {
+                "legend": false,
+                "tooltip": false,
+                "viz": false // Display settings for legend, tooltip, and visualization
+              }
+            },
+            "mappings": [],
+            "unit": "none" // Default unit for field values
+          },
+          "overrides": [] // No field-specific overrides
+        },
+        "gridPos": {
+          "h": 9,
+          "w": 12,
+          "x": 12,
+          "y": 18
+        },
+        "id": 7,
+        "options": {
+          "displayLabels": ["percent"], // Display data labels as percentages
+          "legend": {
+            "displayMode": "table",
+            "placement": "right",
+            "showLegend": true,
+            "values": ["percent", "value"] // Legend configuration
+          },
+          "pieType": "donut", // Donut chart type
+          "reduceOptions": {
+            "calcs": ["lastNotNull"], // Calculation to apply to data
+            "fields": "",
+            "values": false
+          },
+          "tooltip": {
+            "mode": "single", // Tooltip configuration
+            "sort": "none"
+          }
+        },
+        "pluginVersion": "9.x.x", // Plugin version obfuscated
+        "targets": [
+          {
+            "datasource": {
+              "type": "tinybird-datasource",
+              "uid": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" // Obfuscated UID
+            },
+            "format": "table",
+            "paramOptions": {
+              "date_from": {
+                "description": "Start date for data range",
+                "type": "DateTime"
+              },
+              "date_to": {
+                "description": "End date for data range",
+                "type": "DateTime"
+              }
+            },
+            "params": {
+              "date_from": "${__from:date:YYYY-MM-DD HH:mm:ss}",
+              "date_to": "${__to:date:YYYY-MM-DD HH:mm:ss}" // Dynamic date parameters
+            },
+            "pipeName": "hidden_pipe_name", // Hidden pipe name
+            "refId": "A"
+          }
+        ],
+        "title": "Searches by Entry Day", // Panel title
+        "transformations": [
+          {
+            "id": "convertFieldType",
+            "options": {}
+          },
+          {
+            "id": "groupBy",
+            "options": {
+              "fields": {
+                "entry_date": {
+                  "aggregations": ["count"], // Aggregate count by date
+                  "operation": "aggregate"
+                },
+                "entry_week_day": {
+                  "aggregations": [],
+                  "operation": "groupby"
+                }
+              }
+            }
+          },
+          {
+            "id": "rowsToFields",
+            "options": {}
+          }
+        ],
+        "type": "piechart" // Visualization type
+      },
+      {
+        "datasource": {
+          "type": "tinybird-datasource",
+          "uid": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" // Obfuscated UID
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds" // Use thresholds for coloring
+            },
+            "custom": {
+              "hideFrom": {
+                "legend": false,
+                "tooltip": false,
+                "viz": false
+              }
+            },
+            "decimals": 7, // Display decimals precision
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                { "color": "green", "value": null },
+                { "color": "red", "value": 80 } // Threshold values
+              ]
+            },
+            "unit": "none"
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 11,
+          "w": 24,
+          "x": 0,
+          "y": 27
+        },
+        "id": 15,
+        "options": {
+          "basemap": {
+            "config": {},
+            "name": "Layer 0",
+            "tooltip": true,
+            "type": "xyz"
+          },
+          "layers": [
+            {
+              "config": {
+                "showLegend": false,
+                "style": {
+                  "color": { "fixed": "dark-green" },
+                  "opacity": 0.7
+                }
+              },
+              "location": {
+                "latitude": "Latitude",
+                "longitude": "Longitude",
+                "mode": "coords"
+              },
+              "name": "Layer 1",
+              "tooltip": true
+            }
+          ],
+          "view": {
+            "allLayers": true,
+            "id": "fit",
+            "lat": 0,
+            "lon": 0,
+            "zoom": 15
+          }
+        },
+        "pluginVersion": "9.x.x", // Obfuscated plugin version
+        "targets": [
+          {
+            "datasource": {
+              "type": "tinybird-datasource",
+              "uid": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" // Obfuscated UID
+            },
+            "format": "table",
+            "params": {
+              "date_from": "${__from:date:YYYY-MM-DD HH:mm:ss}",
+              "date_to": "${__to:date:YYYY-MM-DD HH:mm:ss}" // Dynamic date parameters
+            },
+            "pipeName": "hidden_pipe_name", // Hidden pipe name
+            "refId": "A"
+          }
+        ],
+        "title": "Map View", // Panel title
+        "transformations": [
+          {
+            "id": "filterFieldsByName",
+            "options": {
+              "include": { "names": ["search_lat", "search_lon", "entry_datetime"] }
+            }
+          },
+          {
+            "id": "groupBy",
+            "options": {
+              "fields": {
+                "entry_datetime": {
+                  "aggregations": ["count"],
+                  "operation": "aggregate"
+                },
+                "search_lat": { "operation": "groupby" },
+                "search_lon": { "operation": "groupby" }
+              }
+            }
+          }
+        ],
+        "type": "geomap" // Visualization type
+      }
+    ],
+    "refresh": "",
+    "schemaVersion": 38,
+    "style": "dark", // Dashboard style
+    "tags": [],
+    "templating": { "list": [] },
+    "time": {
+      "from": "now-24h",
+      "to": "now" // Time range for dashboard data
+    },
+    "timepicker": {},
+    "title": "Search Analytics",
+    "uid": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx", // Obfuscated UID
+    "version": 41,
+    "weekStart": ""
+  }
+  
