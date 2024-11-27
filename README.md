@@ -1,5 +1,5 @@
 # Grafana-TinyBird-Rezzcom
-Multiple Grafana dashboards for Rezzcom, to provide epanel supecific dashboards (enabling custom js code for data transformation and visualization).
+Multiple Grafana dashboards for Rezzcom, to provide epanel specific dashboards (enabling custom js code for data transformation and visualization).
 
 NOTE: Provided files are partial samples, meant only to show the direction of work involved in creating the grafana dashboard. The full work is not available for public.
 
